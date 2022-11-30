@@ -1,13 +1,18 @@
 import React from "react";
+import Navbar from "../components/form/Navbar";
 import UserInfo from "../components/form/UserInfo";
-import LogoutButtton from "../components/ui/LogoutButtton";
+import UserNotVerifed from "../services/UserNotVerifed";
 
 const Home = () => {
   return (
     <>
-      <h2>Strona główna</h2>
-      <LogoutButtton></LogoutButtton>
+    <div className="home-container">
+      <Navbar></Navbar>
+      <section className="home-main">
       <UserInfo></UserInfo>
+      </section>
+      <UserNotVerifed></UserNotVerifed>
+    </div>
     </>
   );
 };

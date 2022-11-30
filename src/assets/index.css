@@ -12,12 +12,75 @@ code {
     monospace;
 }
 
+input::placeholder {
+  color: rgb(207, 207, 207);
+  gap: 20px;
+}
+
+input {
+  color: #ffffff;
+  margin-left: 5px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #0b0b36 inset !important;
+  -webkit-text-fill-color: white;
+}
+
 .align-justify-center {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #7907AF; /* CHANGE THIS LATER */
+  background-color: #7907af; /* CHANGE THIS LATER */
+}
+
+@media screen and (max-width: 666px) {
+  .register-form-container form {
+    /* background-color: #7907AF; */
+    height: 95vh;
+  }
+
+  .register-form-container {
+    height: 95vh !important;
+  }
+
+  .register-form-exit-button {
+    display: none;
+  }
+
+  #register-form-name {
+    width: 40vw !important;
+  }
+  #register-form-email {
+    width: 40vw !important;
+  }
+  #register-form-password {
+    width: 40vw !important;
+  }
+
+  #register-form-confirm-password {
+    width: 40vw !important;
+  }
+
+  #login-form-password {
+    width: 50vw !important;
+  }
+
+  #login-form-name {
+    width: 50vw !important;
+  }
+
+  #register-form-input-element {
+    width: 90vw !important;
+    justify-content: space-between !important;
+  }
+  .register-form-accept {
+    width: 90vw;
+  }
 }
 
 .register-form-container {
@@ -31,6 +94,10 @@ code {
   height: 650px;
   display: flex;
   justify-content: center;
+}
+
+.h400 {
+  height: 400px;
 }
 
 .register-form-title {
@@ -74,12 +141,12 @@ code {
   gap: 10px;
 }
 
-#register-form-input-element label{
- font-size: 20px;
- color: white;
+#register-form-input-element label {
+  font-size: 20px;
+  color: white;
 }
 
-#register-form-input-element  input{
+#register-form-input-element input {
   height: 30px;
   width: 300px;
   background: rgba(121, 7, 175, 0.01);
@@ -90,44 +157,43 @@ code {
   border-radius: 16px;
 }
 
-.register-form-accept{
-margin-top: 40px;
+.register-form-accept {
+  margin-top: 40px;
 }
 
 #register-form-input-element-ch {
   margin-top: 10px;
 }
 
-#register-form-input-element-ch label{
+#register-form-input-element-ch label {
   margin-left: 10px;
   color: white;
 }
 
-
-#register-form-input-element-ch input{
+#register-form-input-element-ch input {
   background: rgba(121, 7, 175, 0.01);
   border-width: 2px 0px 0px 2px;
   border-style: solid;
-  border-color: #00A3FF;
-  box-shadow: 0px 4px 10px -2px #FF00E5;
+  border-color: #00a3ff;
+  box-shadow: 0px 4px 10px -2px #ff00e5;
 }
 
-.register-form-container .register-form-confirm-button{
+.register-form-container .register-form-confirm-button {
   background: rgba(121, 7, 175, 0.01);
   border-width: 2px 0px 0px 2px;
   border-style: solid;
-  border-color: #00A3FF;
-  box-shadow: 0px 4px 10px -2px #FF00E5;
+  border-color: #00a3ff;
+  box-shadow: 0px 4px 10px -2px #ff00e5;
   border-radius: 16px;
   font-weight: 700;
   font-size: 27px;
   color: #ffffff;
-  padding: 0 10px 0 10px;
-  margin-top: 50px;
+  padding: 2px 10px 2px 10px;
+  margin-top: 15px;
   cursor: pointer;
 }
 
-.register-form-exit-button{
+.register-form-exit-button {
   background: rgba(121, 7, 175, 0.01);
   margin-top: 20px;
   color: #ffffff;
@@ -136,4 +202,57 @@ margin-top: 40px;
   font-size: 27px;
   border: none;
   cursor: pointer;
+}
+
+.home-container {
+  background-color: #0b0b36;
+  color: #ffffff;
+  width: auto;
+  height: 100vh;
+}
+
+.navbar-wrapper {
+  background-color: #06061f;
+  color: #ffffff;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-left{
+  flex-basis: 10vw;
+}
+
+.navbar-right{
+  flex-basis: 80vw;
+}
+
+.navbar-right button{
+float: right;
+color: #ffffff;
+background-color: #06061f;
+border: 0;
+cursor: pointer;
+font-size: 15px;
+font-weight: bold;
+}
+
+.home-main{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.register-confirm-main{
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-confirm-main p{
+  text-align: center;
+  width: 90vw;
 }

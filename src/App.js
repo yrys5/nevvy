@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { useSelector } from "react-redux";
+import RegisterSuccess from './pages/RegisterSuccess';
 
 const App = () => {
   const user = useSelector((state)=>state.user.currentUser);
@@ -17,7 +18,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/login" element={user ? <Navigate to="/"/> : <Login/>}></Route>
-        <Route path="/register" element={user ? <Navigate to="/"/> : <Register/>}></Route>
+        <Route path="/register" element={ user?.isVerified === false ? <Navigate to="/confirm-register"/> : user?.isVerified === true ? <Navigate to="/"/> : <Register/>}></Route>
+        <Route path='/confirm-register' element={<RegisterSuccess/>}></Route>
       </Routes>
     </Router>
   );
