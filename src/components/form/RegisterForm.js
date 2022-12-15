@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { register } from "../../context/redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,13 +8,19 @@ const RegisterForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const policyRef = { policy1: useRef(null), policy2: useRef(null), policy3: useRef(null) };
+
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
 
   const handleClick = (e) => {
     e.preventDefault();
-    register(dispatch, { username, password, email, passwordConfirm });
-    // console.log(error);
+    const policy = {
+      policy1: policyRef.policy1.current.checked,
+      policy2: policyRef.policy2.current.checked,
+      policy3: policyRef.policy3.current.checked
+    };
+    register(dispatch, { username, password, email, passwordConfirm, policy });
   };
 
   return (
@@ -46,19 +52,19 @@ const RegisterForm = () => {
         </div>
         <section className="register-form-accept">
           <div id="register-form-input-element-ch">
-            <input type={"checkbox"} id="register-form-confirm-policy"></input>
+            <input type={"checkbox"} id="register-form-confirm-policy" ref={policyRef.policy1}></input>
             <label htmlFor="register-form-confirm-policy">
               Zapoznałem/am się z Regulaminem forum Nevvy
             </label>
           </div>
           <div id="register-form-input-element-ch">
-            <input type={"checkbox"} id="register-form-confirm-policy2"></input>
+            <input type={"checkbox"} id="register-form-confirm-policy2" ref={policyRef.policy2}></input>
             <label htmlFor="register-form-confirm-policy2">
               Zgadzam się z Warunkami użytkowania
             </label>
           </div>
           <div id="register-form-input-element-ch">
-            <input type={"checkbox"} id="register-form-confirm-policy3"></input>
+            <input type={"checkbox"} id="register-form-confirm-policy3" ref={policyRef.policy3}></input>
             <label htmlFor="register-form-confirm-policy3">
               Wysyłaj wiadomości i aktualizacje
             </label>

@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { useSelector } from "react-redux";
 import RegisterSuccess from './pages/RegisterSuccess';
+import User from './pages/User';
 
 const App = () => {
   const user = useSelector((state)=>state.user.currentUser);
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/login" element={user ? <Navigate to="/"/> : <Login/>}></Route>
         <Route path="/register" element={ user?.isVerified === false ? <Navigate to="/confirm-register"/> : user?.isVerified === true ? <Navigate to="/"/> : <Register/>}></Route>
         <Route path='/confirm-register' element={<RegisterSuccess/>}></Route>
+        <Route path='/user-account' element={<User/>}></Route>
       </Routes>
     </Router>
   );

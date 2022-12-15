@@ -1,18 +1,44 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/form/Navbar";
 import UserInfo from "../components/form/UserInfo";
 import UserNotVerifed from "../services/UserNotVerifed";
+import { Helmet } from "react-helmet";
+import NewestPosts from "../components/form/NewestPosts";
 
 const Home = () => {
+  const [newstPosts, setNewestPosts] = useState("");
+  console.log(newstPosts);
+  useEffect(() => {
+    const getNewestPosts = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:8099/api/post/get-all`
+        );
+        setNewestPosts(res.data.posts);
+      } catch (err) {}
+    };
+    getNewestPosts();
+  }, []);
+
   return (
     <>
-    <div className="home-container">
-      <Navbar></Navbar>
-      <section className="home-main">
-      <UserInfo></UserInfo>
-      </section>
-      <UserNotVerifed></UserNotVerifed>
-    </div>
+      <div className="home-container">
+        <Helmet>
+          <title>Strona główna - nevvy</title>
+        </Helmet>
+        <Navbar></Navbar>
+        <section className="home-main">
+          <section className="home-main-left">
+            <h2>Najnowsze posty</h2>
+            <NewestPosts info={newstPosts}></NewestPosts>
+          </section>
+          <section className="home-main-right">
+            <h3>Wyróżnione posty</h3>
+          </section>
+        </section>
+        <UserNotVerifed></UserNotVerifed>
+      </div>
     </>
   );
 };
