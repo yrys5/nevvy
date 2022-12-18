@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import AddPost from "../components/form/AddPost";
 import Navbar from "../components/form/Navbar";
 import UserInfo from "../components/form/UserInfo";
 
@@ -16,7 +15,6 @@ const User = () => {
         <UserInfo></UserInfo>
         </section>
         <section className="user-main-right">
-            <AddPost></AddPost>
         </section>
       </div>
     </div>

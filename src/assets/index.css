@@ -237,16 +237,16 @@ input:-webkit-autofill:active {
 .navbar-right button{
 float: right;
 color: #ffffff;
-background-color: #06061f;
 border: 0;
 cursor: pointer;
-font-size: 15px;
+font-size: 12px;
 font-weight: bold;
 }
 
 .home-main{
   display: flex;
   justify-content: center;
+  background-color: #2C394B;
   margin-top: 10px;
 }
 
@@ -321,10 +321,10 @@ flex-basis: 14vw;
 }
 
 .add-new-post input{
-  width: 500px;
+  width: 60vw;
 }
 
-.add-new-post button{
+.anp-button{
   width: 120px;
   background-color: #082032;
   color: #ffffff;
@@ -336,7 +336,6 @@ flex-basis: 14vw;
 }
 
 textarea{
-  width: 500px;
   height: 500px;
 }
 
@@ -348,4 +347,49 @@ textarea{
   display: flex;
   flex-flow: column wrap;
   gap: 10px;
+}
+
+.stack{
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 666px) {
+.home-main{
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-main-right {
+  display: flex;
+  margin: 10px;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 94vw;
+}
+.navbar-wrapper{
+  padding: 2px 8px;
+}
+
+.add-new-post input {
+  width: 90vw;
+}
+
+textarea {
+  width: auto;
+  height: 50vh;
+}
+
+.single-post {
+  width: 94vw;
+}
+
+.single-post-right {
+  flex-basis: 20vw;
+  font-size: small;
+}
+.single-post-left {
+  width: 100%;
+  font-size: small;
+}
+
 }

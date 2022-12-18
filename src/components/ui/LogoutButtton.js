@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { logout } from "../../context/redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const LogoutButtton = () => {
   const dispatch = useDispatch();
@@ -23,7 +25,8 @@ const LogoutButtton = () => {
 
   return(
     <>
-    <button onClick={handleClick}><Link style={{textDecoration: "none", color: "#ffffff"}} to={logoutState2}>{logoutState}</Link></button>
+    {/* <button onClick={handleClick}><Link style={{textDecoration: "none", color: "#ffffff"}} to={logoutState2}>{logoutState}</Link></button> */}
+    <Button variant="outlined" startIcon={<LogoutIcon />} onClick={handleClick}><Link style={{textDecoration: "none", color: "#ffffff"}} to={logoutState2}>{logoutState}</Link></Button>
     </>
   ) 
 };
