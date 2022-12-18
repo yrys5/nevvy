@@ -5,6 +5,7 @@ import UserInfo from "../components/form/UserInfo";
 import UserNotVerifed from "../services/UserNotVerifed";
 import { Helmet } from "react-helmet";
 import NewestPosts from "../components/form/NewestPosts";
+import { BASE_URL } from "../services/requestMethods"
 
 const Home = () => {
   const [newstPosts, setNewestPosts] = useState("");
@@ -13,7 +14,7 @@ const Home = () => {
     const getNewestPosts = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8099/api/post/get-all`
+          `${BASE_URL}post/get-all`
         );
         setNewestPosts(res.data.posts);
       } catch (err) {}

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BASE_URL = "http://localhost:8099/api/";
-const BASE_URL = "https://nevvy.herokuapp.com/api/";
+// export const BASE_URL = "http://localhost:8099/api/";
+export const BASE_URL = "https://nevvy.herokuapp.com/api/";
 
 const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
 const currentUser = user && JSON.parse(user).currentUser;
