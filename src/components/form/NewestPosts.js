@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SinglePost from "../ui/SinglePost";
 
 const NewestPosts = (props) => {
   const columns = [];
 
-  console.log(columns)
-
   Array.from(props.info).forEach((post) => {
     columns.push(
       <SinglePost
+        id={post._id}
         title={post.title}
         content={post.content}
         username={post.username}
-        key={post.title}
+        key={post.id}
       ></SinglePost>
     );
   });
