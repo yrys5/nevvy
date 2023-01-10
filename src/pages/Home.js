@@ -6,6 +6,7 @@ import UserNotVerifed from "../services/UserNotVerifed";
 import { Helmet } from "react-helmet";
 import NewestPosts from "../components/form/NewestPosts";
 import { BASE_URL } from "../services/requestMethods"
+import Footer from "../components/form/Footer";
 
 const Home = () => {
   const [newstPosts, setNewestPosts] = useState("");
@@ -38,6 +39,7 @@ const Home = () => {
             <h3>Wyróżnione posty</h3>
           </section>
         </section>
+          <Footer></Footer>
         <UserNotVerifed></UserNotVerifed>
       </div>
     </>
