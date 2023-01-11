@@ -26,7 +26,7 @@ input {
 
 a{
   text-decoration: none;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 input:-webkit-autofill,
@@ -212,10 +212,12 @@ input:-webkit-autofill:active {
 }
 
 .home-container {
+  display: flex;
+  flex-direction: column;
   background-color: #2C394B;
   color: #ffffff;
   width: auto;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .navbar-wrapper {
@@ -236,6 +238,7 @@ input:-webkit-autofill:active {
   flex-basis: 14vw;
   flex-flow: row nowrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
 }
 
@@ -278,7 +281,7 @@ flex-basis: 14vw;
 
 .single-post{
   display: flex;
-  width: 66vw;
+  /* width: 66vw; */
   background-color: #082032;
   margin: 10px 0 0 0px;
   flex-direction: row;
@@ -311,7 +314,7 @@ flex-basis: 14vw;
 }
 
 .user-main-right{
-  flex-basis: 40vw;
+  flex-basis: 60vw;
 }
 
 .add-new-post{
@@ -323,10 +326,16 @@ flex-basis: 14vw;
 .add-new-post form{
   display: flex;
   flex-flow: column wrap;
+  gap: 10px;
 }
 
 .add-new-post input{
   width: 60vw;
+  background-color: #ffffffad;
+  border: none;
+  border-radius: 5px;
+  height: 26px;
+  margin-left: 0;
 }
 
 .anp-button{
@@ -342,6 +351,9 @@ flex-basis: 14vw;
 
 textarea{
   height: 500px;
+  background-color: #ffffffad;
+  border: none;
+  border-radius: 5px;
 }
 
 .add-new-post input{
@@ -365,6 +377,11 @@ textarea{
   display: flex;
   /* justify-content: center; */
   align-items: center;
+  flex-grow: 1;
+}
+
+.footer-center a{
+  color: #ffffff !important;
 }
 
 .footer-center{
@@ -399,6 +416,19 @@ textarea{
 
 
 @media screen and (max-width: 666px) {
+  .home-main-left h2{
+    margin-left: 10px;
+  }
+
+  .navbar-left{
+    flex-basis: 72vw;
+  }
+
+  .navbar-right{
+    flex-basis: 24vw;
+    justify-content: flex-end;
+  }
+
   .footer-wrapper{
     background-color: #082032;
     display: flex;
@@ -442,7 +472,7 @@ textarea{
   width: 94vw;
 }
 .navbar-wrapper{
-  padding: 2px 8px;
+  padding: 10px;
 }
 
 .add-new-post input {
