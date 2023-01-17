@@ -5,6 +5,7 @@ import { userRequest } from "../../services/requestMethods";
 import { AlertTitle, Button, Snackbar } from "@mui/material";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import { Stack } from "@mui/system";
+import SelectCategory from "../ui/SelectCategory";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -13,6 +14,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 const AddPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [category, setCategory] = useState("");
   const loggedUser = useSelector((state) => state.user);
   const [open, setOpen] = React.useState(false);
 
@@ -32,6 +34,7 @@ const AddPost = () => {
         title: title,
         content: content,
         user_id: loggedUser.currentUser._id,
+        category: category,
       })
       .then((response) => {
         console.log("Post dodany pomyślnie!");
@@ -64,13 +67,11 @@ const AddPost = () => {
           Tytuł:
           <input type="text" value={title} onChange={handleTitleChange} />
         </label>
+        <SelectCategory category={category} setCategory={setCategory}></SelectCategory>
         <label>
           Treść:
           <textarea value={content} onChange={handleContentChange} />
         </label>
-        {/* <button className="anp-button" type="submit">
-          Dodaj post
-        </button> */}
         <div className="stack">
           <Stack spacing={2} sx={{ width: "100%" }}>
             <Button variant="outlined" type="submit">

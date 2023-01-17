@@ -26,7 +26,7 @@ input {
 
 a{
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(252, 252, 252, 0.87);
 }
 
 input:-webkit-autofill,
@@ -404,6 +404,32 @@ textarea{
 .footer-right{
   display: flex;
   flex-direction: column;
+}
+
+.category-slider{
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+  display: flex;
+    justify-content: center;
+}
+
+.single-category{
+  background-color: #393e46;
+  padding: 7px;
+  gap: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.single-category:hover{
+  background-color: #46484b;
+}
+
+.single-category img{
+  width: 35px;
 }
 
 @media screen and (min-width: 666px) {

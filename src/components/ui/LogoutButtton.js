@@ -26,7 +26,7 @@ const LogoutButtton = () => {
   return(
     <>
     {/* <button onClick={handleClick}><Link style={{textDecoration: "none", color: "#ffffff"}} to={logoutState2}>{logoutState}</Link></button> */}
-    <Button variant="outlined" startIcon={<LogoutIcon />} onClick={handleClick}><Link style={{textDecoration: "none", color: "rgba(0, 0, 0, 0.87)"}} to={logoutState2}>{logoutState}</Link></Button>
+    <Button variant="outlined" startIcon={<LogoutIcon />} onClick={handleClick}><Link style={{textDecoration: "none"}} to={logoutState2}>{logoutState}</Link></Button>
     </>
   ) 
 };

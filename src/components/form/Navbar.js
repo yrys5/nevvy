@@ -113,7 +113,7 @@ const Navbar = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>
+        <MenuItem disabled>
           <Avatar /> Profil
         </MenuItem>
         <Link to="/user-account">
@@ -130,7 +130,7 @@ const Navbar = () => {
           Dodaj nowy post
         </MenuItem>
         </Link>
-        <MenuItem>
+        <MenuItem disabled>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
