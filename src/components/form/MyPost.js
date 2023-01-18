@@ -21,11 +21,6 @@ const MyPost = () => {
     getMyPosts();
   },[myPosts]);
 
-  function logs(){
-    console.log("posts: " + myPosts);
-    console.log("user: " + currentUser._id);
-  }
-
   return (
     <>
       <div>

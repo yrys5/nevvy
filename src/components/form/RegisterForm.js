@@ -25,7 +25,6 @@ const RegisterForm = () => {
 
   return (
     <section className="register-form-container">
-      <button className="register-form-exit-button">x</button>
       <div className="register-form-title">
         <h2>Rejestracja</h2>
       </div>

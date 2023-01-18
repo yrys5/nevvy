@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/form/Navbar";
-import UserInfo from "../components/form/UserInfo";
 import UserNotVerifed from "../services/UserNotVerifed";
 import { Helmet } from "react-helmet";
 import NewestPosts from "../components/form/NewestPosts";
