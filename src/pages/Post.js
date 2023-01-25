@@ -18,43 +18,13 @@ import AlertProvider from "../context/react/AlertContext";
 import { AlertContext } from "../context/react/AlertContext";
 import Alerts from "../components/ui/Alerts";
 
-// function convertToReadableDate(date) {
-//   let dateObject = new Date(date);
-//   let hours = dateObject.getHours().toString().padStart(2, "0");
-//   let minutes = dateObject.getMinutes().toString().padStart(2, "0");
-//   let day = dateObject.getDate().toString().padStart(2, "0");
-//   let month = (dateObject.getMonth() + 1).toString().padStart(2, "0");
-//   let year = dateObject.getFullYear();
-
-//   return `${hours}:${minutes} ${day}.${month}.${year}`;
-// }
-
 const Post = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [post, setPost] = useState("");
 
-  // const [openAlert, setOpenAlert] = useState(true);
-  // const [severity, setSeverity] = useState("success");
-  // const [alertText, setAlertText] = useState("Pomyślnie dodano post!");
-
   const user = useSelector((state) => state?.user.currentUser);
   const [isTextFieldActive, setIsTextFieldActive] = useState(false);
-
-//SNACBAR
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
-
-// const handleClose = (event, reason) => {
-//   if (reason === "clickaway") {
-//     return;
-//   }
-
-//   setOpenAlert(false);
-// };
-
 
   //funkcja do wyciągnięcia w osobny plik
   function findTitleByDesc(arr, desc) {
@@ -92,15 +62,11 @@ const Alert = React.forwardRef(function Alert(props, ref) {
           <div className="post-header">
             <h2>{post?.title}</h2>
             <div className="post-owner">
-            <Avatar
-                sx={{ width: 26, height: 26, fontSize: "small" }}
-                >
+              <Avatar sx={{ width: 26, height: 26, fontSize: "small" }}>
                 {post?.username?.slice(0, 2).toUpperCase()}
               </Avatar>
-              <p>
-                  {post?.username}
-                </p>
-                  </div>
+              <p>{post?.username}</p>
+            </div>
             <div className="post-header-desc">
               <div className="desc-left">
                 <p>
@@ -114,7 +80,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
                 </p>
               </div>
               <div className="desc-right">
-                  <LongMenuButton></LongMenuButton>
+                <LongMenuButton></LongMenuButton>
               </div>
             </div>
           </div>
@@ -124,25 +90,13 @@ const Alert = React.forwardRef(function Alert(props, ref) {
           <div className="post-comments">
             <h2>Odpowiedzi:</h2>
             <AlertProvider>
-            <AddComment postId={post?._id} type="addComment"></AddComment>
-            <CommentsContainer postId={post?._id}></CommentsContainer>
-            <Alerts></Alerts>
+              <AddComment postId={post?._id} type="addComment"></AddComment>
+              <CommentsContainer postId={post?._id}></CommentsContainer>
+              <Alerts></Alerts>
             </AlertProvider>
-        {/* <Stack spacing={2} sx={{ width: "100%" }}>
-            <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose}>
-              <Alert
-                onClose={handleClose}
-                severity={severity}
-                sx={{ width: "100%" }}
-              >
-                {alertText}
-              </Alert>
-            </Snackbar>
-          </Stack> */}
           </div>
         </div>
-        <div className="stack">
-        </div>
+        <div className="stack"></div>
       </div>
     </div>
   );
