@@ -1,7 +1,7 @@
 import { Send } from "@mui/icons-material";
-import { Avatar, Button, Grid, TextField } from "@mui/material";
+import { Avatar, Button, Grid, TextField, Snackbar } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -9,24 +9,52 @@ import Navbar from "../components/form/Navbar";
 import LongMenuButton from "../components/ui/LongMenuButton";
 import { sliderItems } from "../data/categoryGames";
 import { publicRequest } from "../services/requestMethods";
+import AddComment from "../components/form/AddComment";
+import CommentsContainer from "../components/form/CommentsContainer";
+import { convertToReadableDate } from "../services/convertToReadableDate";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
+import { Stack } from "@mui/system";
+import AlertProvider from "../context/react/AlertContext";
+import { AlertContext } from "../context/react/AlertContext";
+import Alerts from "../components/ui/Alerts";
 
-function convertToReadableDate(date) {
-  let dateObject = new Date(date);
-  let hours = dateObject.getHours().toString().padStart(2, "0");
-  let minutes = dateObject.getMinutes().toString().padStart(2, "0");
-  let day = dateObject.getDate().toString().padStart(2, "0");
-  let month = (dateObject.getMonth() + 1).toString().padStart(2, "0");
-  let year = dateObject.getFullYear();
+// function convertToReadableDate(date) {
+//   let dateObject = new Date(date);
+//   let hours = dateObject.getHours().toString().padStart(2, "0");
+//   let minutes = dateObject.getMinutes().toString().padStart(2, "0");
+//   let day = dateObject.getDate().toString().padStart(2, "0");
+//   let month = (dateObject.getMonth() + 1).toString().padStart(2, "0");
+//   let year = dateObject.getFullYear();
 
-  return `${hours}:${minutes} ${day}.${month}.${year}`;
-}
+//   return `${hours}:${minutes} ${day}.${month}.${year}`;
+// }
 
 const Post = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [post, setPost] = useState("");
+
+  // const [openAlert, setOpenAlert] = useState(true);
+  // const [severity, setSeverity] = useState("success");
+  // const [alertText, setAlertText] = useState("Pomyślnie dodano post!");
+
   const user = useSelector((state) => state?.user.currentUser);
   const [isTextFieldActive, setIsTextFieldActive] = useState(false);
+
+//SNACBAR
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+
+// const handleClose = (event, reason) => {
+//   if (reason === "clickaway") {
+//     return;
+//   }
+
+//   setOpenAlert(false);
+// };
+
 
   //funkcja do wyciągnięcia w osobny plik
   function findTitleByDesc(arr, desc) {
@@ -95,50 +123,25 @@ const Post = () => {
           </div>
           <div className="post-comments">
             <h2>Odpowiedzi:</h2>
-            <div className="post-add-comment">
-              <Avatar
-                id="comment-avatar"
-                sx={{ width: 26, height: 26, fontSize: "small" }}
+            <AlertProvider>
+            <AddComment postId={post?._id} type="addComment"></AddComment>
+            <CommentsContainer postId={post?._id}></CommentsContainer>
+            <Alerts></Alerts>
+            </AlertProvider>
+        {/* <Stack spacing={2} sx={{ width: "100%" }}>
+            <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity={severity}
+                sx={{ width: "100%" }}
               >
-                {user?.username?.slice(0, 2).toUpperCase()}
-              </Avatar>
-              <Grid container>
-                <Grid item xs={12} sm={10} md={10} lg={11}>
-                  <Box
-                    component="form"
-                    sx={{
-                      "& > :not(style)": { m: 0 },
-                    }}
-                    noValidate
-                    autoComplete="off"
-                  >
-                    <TextField
-                      fullWidth
-                      id="standard-basic"
-                      label="Dodaj odpowiedź"
-                      multiline
-                      variant="standard"
-                      size="small"
-                      onClick={() => setIsTextFieldActive(true)}
-                      onBlur={() => setIsTextFieldActive(false)}
-                    />
-                    {isTextFieldActive && (
-                      <Box>
-                        <Button
-                          variant="contained"
-                          size="small"
-                          style={{ float: "right", marginTop: "10px" }}
-                          endIcon={<Send />}
-                        >
-                          Wyślij
-                        </Button>
-                      </Box>
-                    )}
-                  </Box>
-                </Grid>
-              </Grid>
-            </div>
+                {alertText}
+              </Alert>
+            </Snackbar>
+          </Stack> */}
           </div>
+        </div>
+        <div className="stack">
         </div>
       </div>
     </div>

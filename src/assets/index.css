@@ -300,6 +300,7 @@ flex-basis: 0vw;
 }
 
 .post-add-comment{
+  margin: 6px 0;
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -470,6 +471,60 @@ textarea{
 .single-category img{
   width: 35px;
 }
+
+.comments-display{
+  margin: 10px 0;
+}
+
+.comment-container{
+  margin: 16px 0;
+}
+
+.comment-content{
+  display: flex;
+}
+
+.username-date{
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+.comment-replies{
+  margin-left: 32px;
+}
+
+.comment-error{
+  display: flex;
+  gap: 5px;
+  margin-top: 12px;
+}
+
+.comment-left{
+  margin-right: 10px;
+}
+
+.comment-date{
+  font-size: 12px;
+}
+
+.comment-footer{
+  display: flex;
+  margin-top: 5px;
+  margin-left: 31px;
+}
+
+.add-reply{
+  width: 66vw;
+}
+
+.add-reply .post-add-comment{
+  margin-bottom: 20px;
+}
+/* COMMENTS */
+
+/* COMMENTS*/
 
 @media screen and (min-width: 666px) {
   .footer-wrapper{
